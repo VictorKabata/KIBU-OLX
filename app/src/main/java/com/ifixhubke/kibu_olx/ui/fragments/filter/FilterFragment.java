@@ -14,7 +14,7 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.ifixhubke.kibu_olx.data.Item;
 import com.ifixhubke.kibu_olx.databinding.FragmentFilterBinding;
-import com.ifixhubke.kibu_olx.others.CheckInternet;
+import com.ifixhubke.kibu_olx.utils.CheckInternet;
 
 import org.jetbrains.annotations.NotNull;
 

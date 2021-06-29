@@ -1,4 +1,4 @@
-package com.ifixhubke.kibu_olx.adapters;
+package com.ifixhubke.kibu_olx.ui.adapters;
 
 import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
@@ -23,7 +23,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.ifixhubke.kibu_olx.R;
 import com.ifixhubke.kibu_olx.data.Item;
-import com.ifixhubke.kibu_olx.others.ItemClickListener;
+import com.ifixhubke.kibu_olx.utils.ItemClickListener;
 import com.ifixhubke.kibu_olx.ui.fragments.filter.FilteredItemsFragmentDirections;
 
 import java.util.ArrayList;

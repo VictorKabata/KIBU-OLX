@@ -16,10 +16,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ifixhubke.kibu_olx.R;
-import com.ifixhubke.kibu_olx.adapters.FilteredItemsAdapter;
+import com.ifixhubke.kibu_olx.ui.adapters.FilteredItemsAdapter;
 import com.ifixhubke.kibu_olx.data.Item;
 import com.ifixhubke.kibu_olx.databinding.FragmentFilteredItemsBinding;
-import com.ifixhubke.kibu_olx.others.ItemClickListener;
+import com.ifixhubke.kibu_olx.utils.ItemClickListener;
 
 import org.jetbrains.annotations.NotNull;
 

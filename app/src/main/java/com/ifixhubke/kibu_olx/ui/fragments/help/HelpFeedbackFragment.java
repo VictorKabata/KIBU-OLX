@@ -14,7 +14,7 @@ import androidx.navigation.Navigation;
 
 import com.ifixhubke.kibu_olx.R;
 import com.ifixhubke.kibu_olx.databinding.FragmentHelpFeedbackBinding;
-import com.ifixhubke.kibu_olx.others.Utils;
+import com.ifixhubke.kibu_olx.utils.Utils;
 
 import org.jetbrains.annotations.NotNull;
 

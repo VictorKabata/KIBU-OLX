@@ -4,60 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".onboarding.ScreenThree">
+    tools:context=".ui.fragments.onboarding.ScreenThree">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout_circle"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/background_circle"
+        android:elevation="0dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/ic_shopping"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="18dp"
+        android:elevation="0dp"
+        android:scaleType="center"
+        android:src="@drawable/onboarding_image3"
+        app:layout_constraintBottom_toBottomOf="@id/frameLayout_circle"
+        app:layout_constraintEnd_toEndOf="@id/frameLayout_circle"
+        app:layout_constraintStart_toStartOf="@id/frameLayout_circle"
+        app:layout_constraintTop_toTopOf="@id/frameLayout_circle" />
+
+    <TextView
+        android:id="@+id/textView_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:elevation="1dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/all_in_one_place"
+        android:textAlignment="center"
+        android:textColor="@color/textPrimary"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+    <TextView
+        android:id="@+id/textView_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/buy_sell_online_everything_you_need_get_a_variety_of_products_all_in_one_place"
+        android:textAlignment="center"
+        android:textColor="@color/textSecondary"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/textView_title"
+        app:layout_constraintStart_toStartOf="@id/textView_title"
+        app:layout_constraintTop_toBottomOf="@+id/textView_title" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/start"
+        android:id="@+id/textView_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/get_started"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/main"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textView14"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/all_items_in_one_place"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="24sp"
-        android:textColor="?android:attr/textColorPrimary"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/favorites_item_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/buy_sell_online_everything_you_need_get_a_variety_of_products_all_in_one_place"
-        android:textAlignment="center"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/start"
+        android:textColor="@color/colorPrimary"
         android:textSize="16sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!--<com.make.dots.dotsindicator.DotsIndicator
+        android:id="@+id/dots_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/textView_skip"
+        app:layout_constraintEnd_toStartOf="@id/imageView_next"
+        app:layout_constraintStart_toEndOf="@id/textView_skip" />-->
+
+    <!--app:dot_drawable="@drawable/dots_active"
+    app:dot_drawable_unselected="@drawable/dots_inactive"
+    app:dot_height="6dp"
+    app:dot_margin="1dp"
+    app:dot_width="6dp"-->
 </androidx.constraintlayout.widget.ConstraintLayout>

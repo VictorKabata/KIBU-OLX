@@ -18,8 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ifixhubke.kibu_olx.R;
 import com.ifixhubke.kibu_olx.databinding.FragmentLoginBinding;
-import com.ifixhubke.kibu_olx.others.CheckInternet;
-import com.ifixhubke.kibu_olx.others.Utils;
+import com.ifixhubke.kibu_olx.utils.CheckInternet;
+import com.ifixhubke.kibu_olx.utils.Utils;
 
 import timber.log.Timber;
 

@@ -13,7 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ifixhubke.kibu_olx.data.Item;
-import com.ifixhubke.kibu_olx.others.CheckInternet;
+import com.ifixhubke.kibu_olx.utils.CheckInternet;
 
 import java.util.ArrayList;
 

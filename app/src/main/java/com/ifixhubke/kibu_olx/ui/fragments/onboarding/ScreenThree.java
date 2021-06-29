@@ -1,4 +1,4 @@
-package com.ifixhubke.kibu_olx.onboarding;
+package com.ifixhubke.kibu_olx.ui.fragments.onboarding;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.navigation.Navigation;
 
 import com.ifixhubke.kibu_olx.R;
 import com.ifixhubke.kibu_olx.databinding.FragmentScreenThreeBinding;
-import com.ifixhubke.kibu_olx.others.Utils;
+import com.ifixhubke.kibu_olx.utils.Utils;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -25,7 +25,7 @@ public class ScreenThree extends Fragment {
 
         View view = binding.getRoot();
 
-        binding.start.setOnClickListener(v -> {
+        binding.textViewStart.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.action_viewPagerFragment_to_registerFragment);
             Utils.onBoardingDone(requireContext());
         });

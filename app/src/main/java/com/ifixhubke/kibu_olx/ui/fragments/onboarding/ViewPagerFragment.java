@@ -1,4 +1,4 @@
-package com.ifixhubke.kibu_olx.onboarding;
+package com.ifixhubke.kibu_olx.ui.fragments.onboarding;
 
 
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.ifixhubke.kibu_olx.R;
-import com.ifixhubke.kibu_olx.adapters.ViewPagerAdapter;
+import com.ifixhubke.kibu_olx.ui.adapters.ViewPagerAdapter;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.ifixhubke.kibu_olx.adapters;
+package com.ifixhubke.kibu_olx.ui.adapters;
 
 import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
@@ -19,17 +19,11 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.ifixhubke.kibu_olx.R;
 import com.ifixhubke.kibu_olx.data.Item;
-import com.ifixhubke.kibu_olx.others.ItemClickListener;
+import com.ifixhubke.kibu_olx.utils.ItemClickListener;
 
 import java.util.List;
-import java.util.Objects;
 
 import timber.log.Timber;
 

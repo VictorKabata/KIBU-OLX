@@ -18,8 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.ifixhubke.kibu_olx.R;
 import com.ifixhubke.kibu_olx.data.User;
 import com.ifixhubke.kibu_olx.databinding.FragmentRegisterBinding;
-import com.ifixhubke.kibu_olx.others.CheckInternet;
-import com.ifixhubke.kibu_olx.others.Utils;
+import com.ifixhubke.kibu_olx.utils.CheckInternet;
+import com.ifixhubke.kibu_olx.utils.Utils;
 
 import java.util.Objects;
 

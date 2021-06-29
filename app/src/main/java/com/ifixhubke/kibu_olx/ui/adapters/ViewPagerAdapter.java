@@ -1,4 +1,4 @@
-package com.ifixhubke.kibu_olx.adapters;
+package com.ifixhubke.kibu_olx.ui.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

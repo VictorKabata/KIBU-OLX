@@ -25,10 +25,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.ifixhubke.kibu_olx.R;
-import com.ifixhubke.kibu_olx.adapters.AllItemsAdapter;
+import com.ifixhubke.kibu_olx.ui.adapters.AllItemsAdapter;
 import com.ifixhubke.kibu_olx.data.Item;
 import com.ifixhubke.kibu_olx.databinding.FragmentHomeBinding;
-import com.ifixhubke.kibu_olx.others.ItemClickListener;
+import com.ifixhubke.kibu_olx.utils.ItemClickListener;
 import com.ifixhubke.kibu_olx.viewmodels.MainViewModel;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 

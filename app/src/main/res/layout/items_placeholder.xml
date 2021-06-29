@@ -58,7 +58,7 @@
             android:background="@color/placeholder_color"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@color/main"
+            android:textColor="@color/colorPrimary"
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/itemNameTxt"

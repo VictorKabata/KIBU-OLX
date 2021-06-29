@@ -12,7 +12,7 @@ import androidx.fragment.app.DialogFragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.ifixhubke.kibu_olx.databinding.FragmentPasswordResetBinding;
-import com.ifixhubke.kibu_olx.others.Utils;
+import com.ifixhubke.kibu_olx.utils.Utils;
 
 import org.jetbrains.annotations.NotNull;
 

@@ -4,7 +4,7 @@
     <string name="next">Next</string>
     <string name="skip">Skip</string>
     <string name="cheap_and_affordable">Cheap and Affordable</string>
-    <string name="easy_and_accessible">Easy and Accessible</string>
+    <string name="fast_and_easy">Fast and Easy</string>
     <string name="lorem_ipsum">
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget neque sed est pellentesque faucibus nec quis leo. Duis consequat turpis eget pretium vehicula. Fusce dictum augue pharetra libero pulvinar, quis viverra tellus porta. Fusce sed diam et nulla sagittis semper vel quis ex. Nunc eget luctus urna. Mauris tincidunt feugiat mauris at euismod. Quisque vel metus in justo placerat hendrerit a sed erat. Pellentesque vitae mollis nulla. Etiam eu cursus sapien. Ut laoreet condimentum lectus finibus lobortis.
@@ -16,7 +16,7 @@ Nullam tempus lacinia molestie. Suspendisse pulvinar justo vel turpis consequat,
 Sed maximus imperdiet est, quis lacinia turpis porta sed. Aenean in erat eget mauris pharetra ultricies. Nullam eleifend turpis et iaculis tempus. Nullam ac lacus bibendum, ornare justo ac, vestibulum lorem. Integer vel nibh fermentum, condimentum est non, aliquam libero. Nulla faucibus turpis eget tellus tincidunt, auctor iaculis nisl interdum. Ut finibus orci et nisl vehicula gravida. Vestibulum gravida maximus porttitor. Vivamus id diam ex. Maecenas vel porttitor erat, et vestibulum augue. Sed facilisis sem purus, nec luctus dolor efficitur ac. Duis tristique nisl ac nulla lacinia finibus. Donec dictum lectus a nisi semper, id lobortis dui interdum.
 
 Vestibulum luctus diam tincidunt nisi fringilla iaculis. Cras fermentum sollicitudin vulputate. Fusce in nibh risus. Maecenas lobortis molestie lorem, eget mollis urna placerat nec. Sed et pharetra nisi. Sed a cursus ligula. Praesent commodo ex ac lectus mattis ullamcorper. Sed ac vestibulum enim. Phasellus id nunc facilisis, gravida nunc eu, ornare lorem. Etiam luctus quam ac nibh luctus, sed consectetur ligula luctus. Mauris consectetur ornare enim. Vestibulum dignissim id risus non malesuada. Vivamus varius eu eros vestibulum commodo. </string>
-    <string name="all_items_in_one_place">All Items in One Place</string>
+    <string name="all_in_one_place">All in One Place</string>
     <string name="filter">Filter</string>
     <string name="sign_in">Sign In</string>
     <string name="password">Password</string>
@@ -99,7 +99,7 @@ Vestibulum luctus diam tincidunt nisi fringilla iaculis. Cras fermentum sollicit
     <string name="reset_password">Reset Password</string>
     <string name="you_have_nothing_saved_as_favorite">You have nothing saved as favorite</string>
     <string name="buy_sell_online_everything_you_need_get_a_variety_of_products_all_in_one_place"><![CDATA[Buy & Sell different items you need online, Get a Variety of products all in one place]]></string>
-    <string name="easy_to_acquire_items_from_a_fellow_comrade_sell_faster_buy_smarter_at_kibu_olx">Easy to acquire items from a fellow comrade. Sell faster, buy smarter at KIBU-OLX</string>
+    <string name="easy_to_acquire_items_from_a_fellow_comrade_sell_faster_buy_smarter_at_kibu_olx">Easy to acquire items from a fellow comrade. Sell faster, buy smarter at KIBU-OLX.</string>
     <string name="buy_items_at_best_and_cheap_comrade_prices">Buy different affordable items at a cheap and best comrade prices. </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -299,4 +299,5 @@ agree to abide by the terms of this Agreement, you are not authorized to
 Agreement or wish to contact us concerning any matter relating to it,
 you may send an email to ifixhubke@gmail.com.</p>
     </string>
+    <string name="start">Start</string>
 </resources>

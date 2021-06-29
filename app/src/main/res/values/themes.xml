@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.KIBUOLX" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/main</item>
-        <item name="colorPrimaryVariant">@color/main</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/main</item>
-        <item name="colorSecondaryVariant">@color/main</item>
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorPrimary</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
@@ -28,7 +28,7 @@
         <item name="mt_searchIconTint">@color/searchBarSearchIconTintColor</item>
         <item name="mt_clearIconTint">@color/searchBarClearIconTintColor</item>
         <item name="mt_menuIconTint">@color/searchBarMenuIconTintColor</item>
-        <item name="backgroundColor">@color/main</item>
+        <item name="backgroundColor">@color/colorPrimary</item>
         <item name="mt_backIconTint">@color/searchBarBackIconTintColor</item>
         <item name="mt_textCursorTint">@color/searchBarCursorColor</item>
         <item name="mt_textColor">@color/searchBarTextColor</item>

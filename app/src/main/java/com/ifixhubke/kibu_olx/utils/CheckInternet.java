@@ -1,4 +1,4 @@
-package com.ifixhubke.kibu_olx.others;
+package com.ifixhubke.kibu_olx.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

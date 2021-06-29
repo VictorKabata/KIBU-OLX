@@ -1,4 +1,4 @@
-package com.ifixhubke.kibu_olx.onboarding;
+package com.ifixhubke.kibu_olx.ui.fragments.onboarding;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.ifixhubke.kibu_olx.R;
 import com.ifixhubke.kibu_olx.databinding.FragmentScreenOneBinding;
-import com.ifixhubke.kibu_olx.others.Utils;
+import com.ifixhubke.kibu_olx.utils.Utils;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -27,9 +27,9 @@ public class ScreenOne extends Fragment {
 
         ViewPager2 viewPager2 = getActivity().findViewById(R.id.viewPager);
 
-        binding.next1.setOnClickListener(v -> viewPager2.setCurrentItem(1));
+        binding.imageViewNext.setOnClickListener(v -> viewPager2.setCurrentItem(1));
 
-        binding.skip1.setOnClickListener(v -> {
+        binding.textViewSkip.setOnClickListener(v -> {
             Utils.onBoardingDone(requireContext());
             Navigation.findNavController(v).navigate(R.id.action_viewPagerFragment_to_registerFragment);
         });
