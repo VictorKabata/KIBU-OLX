@@ -8,224 +8,189 @@
     tools:context=".ui.fragments.home.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
+        android:id="@+id/app_bar_home"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="?attr/actionBarSize"
+        app:elevation="8dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp">
+            android:background="?attr/colorSurface">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:menu="@menu/filter_menu"
-                app:subtitle="Get items of your choice"
-                app:subtitleTextAppearance="@style/TextAppearance.AppCompat.Small"
-                app:subtitleTextColor="@color/white"
-                app:title="KIBU-OLX"
-                app:titleTextColor="@color/white" />
+                android:layout_height="match_parent"
+                android:paddingEnd="16dp">
 
-            <com.mancj.materialsearchbar.MaterialSearchBar
-                android:id="@+id/searchBar"
-                style="@style/MyCustomTheme"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                app:mt_hint="Pro Gas"
-                app:mt_maxSuggestionsCount="10"
-                app:mt_placeholder="Search"
-                app:mt_roundedSearchBarEnabled="true"
-                app:mt_speechMode="false" />
+                <TextView
+                    android:id="@+id/textView_greeting"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto_medium"
+                    android:maxLines="1"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/imageView_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Good Morning, Victor Kabata" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/imageView_profile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/all_items_recyclerview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="invisible"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appbar"
-        app:spanCount="2"
-        tools:listitem="@layout/all_items_recycler_row" />
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:text="@string/sell"
-        android:textColor="@color/white"
-        app:backgroundTint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerFrameLayout"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appbar">
+        app:layout_constraintTop_toBottomOf="@id/app_bar_home">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <include
-                android:id="@+id/mt_placeholder1"
-                layout="@layout/items_placeholder"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/editText_search"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/mt_placeholder2"
-                app:layout_constraintHorizontal_bias="0.5"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_search_edittext"
+                android:ellipsize="end"
+                android:hint="@string/search_hint"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="14dp"
+                app:layout_constraintEnd_toStartOf="@id/imageView_speech"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <include
-                android:id="@+id/mt_placeholder2"
-                layout="@layout/items_placeholder"
+            <ImageView
+                android:id="@+id/imageView_speech"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_mic"
+                app:layout_constraintBottom_toBottomOf="@id/editText_search"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/mt_placeholder1"
-                app:layout_constraintTop_toTopOf="@+id/mt_placeholder1" />
+                app:layout_constraintTop_toTopOf="@id/editText_search" />
 
-            <include
-                android:id="@+id/mt_placeholder3"
-                layout="@layout/items_placeholder"
+            <TextView
+                android:id="@+id/textView_trending_title"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/trending"
+                android:textColor="@color/textPrimary"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="@id/editText_search"
+                app:layout_constraintTop_toBottomOf="@id/editText_search" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager_trending"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="16dp"
+                app:layout_constraintTop_toBottomOf="@id/textView_trending_title" />
+
+            <com.make.dots.dotsindicator.DotsIndicator
+                android:id="@+id/dots_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:dot_drawable="@drawable/dots_active"
+                app:dot_drawable_unselected="@drawable/dots_inactive"
+                app:dot_height="6dp"
+                app:dot_margin="1dp"
+                app:dot_width="6dp"
+                app:layout_constraintEnd_toEndOf="@id/viewPager_trending"
+                app:layout_constraintStart_toStartOf="@id/viewPager_trending"
+                app:layout_constraintTop_toBottomOf="@id/viewPager_trending" />
+
+            <TextView
+                android:id="@+id/textView_category_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/categories"
+                android:textColor="@color/textPrimary"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dots_indicator" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_categories"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toStartOf="@+id/mt_placeholder4"
-                app:layout_constraintHorizontal_bias="0.5"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/textView_category_title"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_category" />
+
+            <TextView
+                android:id="@+id/textView_explore_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/explore"
+                android:textColor="@color/textPrimary"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toStartOf="@id/textView_see_more"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mt_placeholder1" />
+                app:layout_constraintTop_toBottomOf="@id/recyclerview_categories" />
 
-            <include
-                android:id="@+id/mt_placeholder4"
-                layout="@layout/items_placeholder"
+            <TextView
+                android:id="@+id/textView_see_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/see_more"
+                android:textColor="@color/colorPrimary"
+                android:paddingVertical="8dp"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/textView_explore_title"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/mt_placeholder3"
-                app:layout_constraintTop_toTopOf="@+id/mt_placeholder3" />
+                app:layout_constraintTop_toTopOf="@id/textView_explore_title" />
 
-            <include
-                android:id="@+id/mt_placeholder5"
-                layout="@layout/items_placeholder"
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_products"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toStartOf="@+id/mt_placeholder6"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mt_placeholder3" />
-
-            <include
-                android:id="@+id/mt_placeholder6"
-                layout="@layout/items_placeholder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/mt_placeholder5"
-                app:layout_constraintTop_toTopOf="@+id/mt_placeholder5" />
+                tools:itemCount="6"
+                android:paddingHorizontal="8dp"
+                tools:listitem="@layout/item_product"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_explore_title"
+                app:spanCount="2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.facebook.shimmer.ShimmerFrameLayout>
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:src="@drawable/ic_empty_state"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appbar"
-        app:layout_constraintVertical_bias="0.26"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/nothing_found"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <ImageView
-        android:id="@+id/imageViewLoadingFailed"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/ic_undraw_server_down"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appbar"
-        app:layout_constraintVertical_bias="0.23000002" />
-
-    <TextView
-        android:id="@+id/textViewLoadingFailed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sorry, Loading Failed!"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewLoadingFailed"
-        app:layout_constraintStart_toStartOf="@+id/imageViewLoadingFailed"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewLoadingFailed" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonTryAgain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Try Again"
-        android:textAllCaps="false"
-        android:visibility="gone"
-        app:cornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewLoadingFailed"
-        app:layout_constraintStart_toStartOf="@+id/textViewLoadingFailed"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLoadingFailed" />
-
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

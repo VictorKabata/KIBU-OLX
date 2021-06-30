@@ -301,4 +301,9 @@ you may send an email to ifixhubke@gmail.com.</p>
     <string name="start">Start</string>
     <string name="create_account">Create Account</string>
     <string name="cancel">Cancel</string>
+    <string name="search_hint">Bed, Shoes, Gas, Phone</string>
+    <string name="trending">Trending</string>
+    <string name="categories">Categories</string>
+    <string name="explore">Explore</string>
+    <string name="see_more">See More</string>
 </resources>

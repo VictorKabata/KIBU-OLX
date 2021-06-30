@@ -55,7 +55,7 @@ public class AllItemsAdapter extends RecyclerView.Adapter<AllItemsAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.all_items_recycler_row, parent, false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, parent, false));
     }
 
     @SuppressLint("SetTextI18n")
@@ -178,13 +178,13 @@ public class AllItemsAdapter extends RecyclerView.Adapter<AllItemsAdapter.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            item_image = itemView.findViewById(R.id.itemImageImg);
+            item_image = itemView.findViewById(R.id.imageView_product);
             item_name = itemView.findViewById(R.id.itemNameTxt);
             item_price = itemView.findViewById(R.id.itemPriceTxt);
             add_item_to_favorites = itemView.findViewById(R.id.favoriteItemImg);
             card = itemView.findViewById(R.id.item_card_layout);
             starredItem = itemView.findViewById(R.id.starredfavoriteItemImg);
-            progressBar = itemView.findViewById(R.id.allItemsRowProgressBar);
+            progressBar = itemView.findViewById(R.id.progressBar_product);
             condition = itemView.findViewById(R.id.itemCondition);
         }
     }

@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/itemImageImg"
+                android:id="@+id/imageView_product"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/placeholder_color"
