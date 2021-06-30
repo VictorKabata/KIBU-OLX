@@ -95,7 +95,7 @@
             android:tint="?attr/colorControlNormal"
             app:layout_constraintStart_toStartOf="@+id/textViewSomeDescription"
             app:layout_constraintTop_toBottomOf="@+id/textViewSomeDescription"
-            app:srcCompat="@drawable/ic_phone_number"
+            app:srcCompat="@drawable/ic_phone"
             tools:ignore="ContentDescription" />
 
         <TextView

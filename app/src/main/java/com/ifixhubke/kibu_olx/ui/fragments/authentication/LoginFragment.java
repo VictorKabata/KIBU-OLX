@@ -34,37 +34,35 @@ public class LoginFragment extends Fragment {
         View view = binding.getRoot();
 
         firebaseAuth = FirebaseAuth.getInstance();
-        binding.forgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PasswordResetFragment resetFragment = new PasswordResetFragment();
-                resetFragment.show(getFragmentManager(), "dialog_password_reset");
-            }
+        binding.linearLayoutResetPassword.setOnClickListener(v -> {
+            PasswordResetDialog resetFragment = new PasswordResetDialog();
+            resetFragment.show(getFragmentManager(), "dialog_password_reset");
         });
 
-        binding.dontHaveAccount.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_registerFragment));
+        binding.linearLayoutCreateAccount.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_registerFragment));
 
-        binding.signinButton.setOnClickListener(v -> {
+        binding.buttonLogin.setOnClickListener(v -> {
 
             Utils.hideSoftKeyboard(requireActivity());
 
-            String mail = binding.emailEditText.getEditText().getText().toString().trim();
-            String password = binding.passwordEditText.getEditText().getText().toString().trim();
+            String mail = binding.editTextEmail.getEditText().getText().toString().trim();
+            String password = binding.editTextPassword.getEditText().getText().toString().trim();
 
-            if (TextUtils.isEmpty(binding.emailEditText.getEditText().getText().toString())) {
-                binding.emailEditText.setError("Field can't be empty!!");
+            if (TextUtils.isEmpty(binding.editTextEmail.getEditText().getText().toString())) {
+                binding.editTextEmail.setError("Field can't be empty!!");
                 return;
-            } else if (TextUtils.isEmpty(binding.passwordEditText.getEditText().getText().toString())) {
-                binding.passwordEditText.setError("Field can't be empty!!");
+            } else if (TextUtils.isEmpty(binding.editTextPassword.getEditText().getText().toString())) {
+                binding.editTextPassword.setError("Field can't be empty!!");
                 return;
             } else if (!(CheckInternet.isConnected(requireContext()))) {
                 Toast.makeText(requireContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
                 Timber.d("No Internet");
             } else {
-                binding.loginProgressBar.setVisibility(View.VISIBLE);
-                binding.emailEditText.setEnabled(false);
-                binding.passwordEditText.setEnabled(false);
-                binding.signinButton.setEnabled(false);
+                binding.progressBarLogin.setVisibility(View.VISIBLE);
+                binding.editTextEmail.setEnabled(false);
+                binding.editTextPassword.setEnabled(false);
+                binding.buttonLogin.setEnabled(false);
+                binding.buttonLogin.setAlpha(.5f);
             }
             firebaseAuth.signInWithEmailAndPassword(mail, password).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                 @Override
@@ -73,20 +71,21 @@ public class LoginFragment extends Fragment {
                         if (firebaseAuth.getCurrentUser().isEmailVerified()) {
                             Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_homeFragment2);
                             Timber.d("signInWithEmailAndPassword: success");
-                            binding.loginProgressBar.setVisibility(View.INVISIBLE);
+                            binding.progressBarLogin.setVisibility(View.INVISIBLE);
                         } else {
-                            binding.loginProgressBar.setVisibility(View.INVISIBLE);
+                            binding.progressBarLogin.setVisibility(View.INVISIBLE);
                             Toast.makeText(getContext(), "Verify you email first", Toast.LENGTH_SHORT).show();
-                            binding.emailEditText.getEditText().setText("");
-                            binding.passwordEditText.getEditText().setText("");
+                            binding.editTextEmail.getEditText().setText("");
+                            binding.editTextPassword.getEditText().setText("");
                         }
                     } else {
                         Toast.makeText(getContext(), "Something Went Wrong.\n please check your details and try again", Toast.LENGTH_SHORT).show();
                         Timber.d("signInWithEmailAndPassword: Failed");
-                        binding.loginProgressBar.setVisibility(View.INVISIBLE);
-                        binding.emailEditText.setEnabled(true);
-                        binding.passwordEditText.setEnabled(true);
-                        binding.signinButton.setEnabled(true);
+                        binding.progressBarLogin.setVisibility(View.INVISIBLE);
+                        binding.editTextEmail.setEnabled(true);
+                        binding.editTextPassword.setEnabled(true);
+                        binding.buttonLogin.setEnabled(true);
+                        binding.buttonLogin.setAlpha(1f);
                     }
                 }
             });

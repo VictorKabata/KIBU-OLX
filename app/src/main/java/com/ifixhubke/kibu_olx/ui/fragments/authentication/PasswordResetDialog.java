@@ -11,39 +11,43 @@ import android.widget.Toast;
 import androidx.fragment.app.DialogFragment;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.ifixhubke.kibu_olx.databinding.FragmentPasswordResetBinding;
+import com.ifixhubke.kibu_olx.databinding.DialogPasswordResetBinding;
 import com.ifixhubke.kibu_olx.utils.Utils;
 
 import org.jetbrains.annotations.NotNull;
 
-public class PasswordResetFragment extends DialogFragment {
+import java.util.Objects;
 
-    FragmentPasswordResetBinding binding;
+public class PasswordResetDialog extends DialogFragment {
+
+    DialogPasswordResetBinding binding;
 
 
     @Override
-    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentPasswordResetBinding.inflate(inflater, container, false);
+        binding = DialogPasswordResetBinding.inflate(inflater, container, false);
+
+        //TODO: Set the background as transparent
+        //this.getDialog().getWindow().setBackgroundDrawableResource();
 
         View view = binding.getRoot();
-        binding.dialogConfirm.setOnClickListener(v -> {
+        binding.buttonReset.setOnClickListener(v -> {
 
             Utils.hideSoftKeyboard(requireActivity());
 
-            if (TextUtils.isEmpty(binding.userEmail.getText().toString())) {
-                binding.userEmail.setError("Required");
+            if (TextUtils.isEmpty(Objects.requireNonNull(binding.editTextEmail.getEditText()).getText().toString())) {
+                binding.editTextEmail.setError("Required");
                 return;
 
             }
-            if (!Patterns.EMAIL_ADDRESS.matcher(binding.userEmail.getText().toString()).matches()) {
-                binding.userEmail.setError("Invalid email format");
+            if (!Patterns.EMAIL_ADDRESS.matcher(binding.editTextEmail.getEditText().getText().toString()).matches()) {
+                binding.editTextEmail.setError("Invalid email format");
                 return;
 
             }
 
-            FirebaseAuth.getInstance().sendPasswordResetEmail(binding.userEmail.getText().toString())
+            FirebaseAuth.getInstance().sendPasswordResetEmail(binding.editTextEmail.getEditText().getText().toString())
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             Toast.makeText(requireContext(), "Check Your Email", Toast.LENGTH_SHORT).show();
@@ -52,6 +56,11 @@ public class PasswordResetFragment extends DialogFragment {
                         }
                     }).addOnFailureListener(e -> Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show());
         });
+
+        binding.textViewCancel.setOnClickListener(v -> {
+            this.dismiss();
+        });
+
         return view;
     }
 }

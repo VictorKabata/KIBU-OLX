@@ -48,59 +48,60 @@ public class RegisterFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
-        binding.signupTextView.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.action_registerFragment_to_loginFragment));
+        binding.linearLayoutLogin.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.action_registerFragment_to_loginFragment));
 
-        binding.termsCondition.setOnClickListener(v->{
+        /*binding.termsCondition.setOnClickListener(v->{
             Navigation.findNavController(v).navigate(R.id.action_registerFragment_to_termsConditionFragment);
-        });
+        });*/
 
-        binding.registerButton.setOnClickListener(v -> {
+        binding.buttonCreateAccount.setOnClickListener(v -> {
 
             Utils.hideSoftKeyboard(requireActivity());
 
-            String mail = Objects.requireNonNull(binding.enterEmail.getEditText()).getText().toString().trim();
-            String pass = Objects.requireNonNull(binding.enterPassword.getEditText()).getText().toString().trim();
-            String first_Name = Objects.requireNonNull(binding.firstName.getEditText()).getText().toString().trim();
-            String last_Name = Objects.requireNonNull(binding.lastName.getEditText()).getText().toString().trim();
-            Boolean agree_with_rules = binding.materialCheckBox.callOnClick();
+            String mail = Objects.requireNonNull(binding.editTextEmail.getEditText()).getText().toString().trim();
+            String pass = Objects.requireNonNull(binding.editTextPassword.getEditText()).getText().toString().trim();
+            String first_Name = Objects.requireNonNull(binding.editTextFirstName.getEditText()).getText().toString().trim();
+            String last_Name = Objects.requireNonNull(binding.editTextLastName.getEditText()).getText().toString().trim();
+            String phone_Number = Objects.requireNonNull(binding.editTextPhoneNumber.getEditText()).getText().toString().trim();
+            //Boolean agree_with_rules = binding.materialCheckBox.callOnClick();
 
 
-            if (binding.enterEmail.getEditText().getText().toString().isEmpty()) {
-                binding.enterEmail.setError("This field can't be empty!");
+            if (binding.editTextEmail.getEditText().getText().toString().isEmpty()) {
+                binding.editTextEmail.setError("This field can't be empty!");
                 return;
-            } else if (!binding.enterEmail.getEditText().getText().toString().matches(validEmail)) {
-                binding.enterEmail.setError("Invalid email!");
+            } else if (!binding.editTextEmail.getEditText().getText().toString().matches(validEmail)) {
+                binding.editTextEmail.setError("Invalid email!");
                 return;
-            } else if (binding.enterPassword.getEditText().getText().toString().isEmpty()) {
-                binding.enterPassword.setError("This field can't be empty!");
+            } else if (binding.editTextPassword.getEditText().getText().toString().isEmpty()) {
+                binding.editTextPassword.setError("This field can't be empty!");
                 return;
-            } else if (!(binding.enterPassword.getEditText().getText().toString()).matches(validPassword)) {
-                binding.enterPassword.setError("Password is too weak.!"
+            } else if (!(binding.editTextPassword.getEditText().getText().toString()).matches(validPassword)) {
+                binding.editTextPassword.setError("Password is too weak.!"
                         + "\n Must contain" +
                         "\nat least 8 characters." + "\nAt least one digit"
                         + "\nAt least one lowercase letter and one uppercase letter");
                 return;
-            } else if (binding.firstName.getEditText().getText().toString().isEmpty()) {
-                binding.firstName.setError("This field can't be empty!");
+            } else if (binding.editTextFirstName.getEditText().getText().toString().isEmpty()) {
+                binding.editTextFirstName.setError("This field can't be empty!");
                 return;
-            } else if (binding.firstName.getEditText().getText().toString().length() >= 15) {
-                binding.firstName.setError("Name is too long!");
+            } else if (binding.editTextFirstName.getEditText().getText().toString().length() >= 15) {
+                binding.editTextFirstName.setError("Name is too long!");
                 return;
-            } else if (binding.lastName.getEditText().getText().toString().isEmpty()) {
-                binding.lastName.setError("This field can't be empty!");
+            } else if (binding.editTextLastName.getEditText().getText().toString().isEmpty()) {
+                binding.editTextLastName.setError("This field can't be empty!");
                 return;
-            } else if (binding.lastName.getEditText().getText().toString().length() >= 15) {
-                binding.lastName.setError("Name is too long!");
+            } else if (binding.editTextLastName.getEditText().getText().toString().length() >= 15) {
+                binding.editTextLastName.setError("Name is too long!");
                 return;
-            } else if (Objects.requireNonNull(binding.phoneNumber.getText()).toString().isEmpty()) {
-                binding.phoneNumber.setError("This field can't be empty!");
+            } else if (Objects.requireNonNull(binding.editTextPhoneNumber.getEditText().getText()).toString().isEmpty()) {
+                binding.editTextPhoneNumber.setError("This field can't be empty!");
                 return;
             } else {
                 binding.registerProgressBar.setVisibility(View.VISIBLE);
             }
-            binding.countryCodePicker.registerCarrierNumberEditText(binding.phoneNumber);
-            String phone_Number = binding.countryCodePicker.getFullNumberWithPlus();
-            Timber.d("%s", phone_Number);
+            //binding.countryCodePicker.registerCarrierNumberEditText(binding.editTextPhoneNumber);
+            //String phone_Number = binding.countryCodePicker.getFullNumberWithPlus();
+            //Timber.d("%s", phone_Number);
 
             firebaseAuth.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(requireActivity(), task -> {
                 if (task.isSuccessful()) {
@@ -138,8 +139,8 @@ public class RegisterFragment extends Fragment {
         return view;
     }
 
-    public void saveUserDetails(String mail, String firstName, String lastName, String phoneNumber) {
-        User user = new User(mail, firstName, lastName, phoneNumber);
+    public void saveUserDetails(String mail, String editTextFirstName, String lastName, String phoneNumber) {
+        User user = new User(mail, editTextFirstName, lastName, phoneNumber);
         databaseReference.child(userID).setValue(user);
     }
 }
