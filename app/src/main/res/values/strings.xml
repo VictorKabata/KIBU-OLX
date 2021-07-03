@@ -306,4 +306,9 @@ you may send an email to ifixhubke@gmail.com.</p>
     <string name="categories">Categories</string>
     <string name="explore">Explore</string>
     <string name="see_more">See More</string>
+    <string name="select_photos">Select Photos</string>
+    <string name="product_name">Product Name</string>
+    <string name="select_condition">Select Condition</string>
+    <string name="price">Price</string>
+    <string name="post">Post</string>
 </resources>

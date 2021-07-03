@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ifixhubke.kibu_olx.R
 import com.ifixhubke.kibu_olx.databinding.ActivityMainBinding
+import com.ifixhubke.kibu_olx.ui.fragments.sell.SellFragmentOne
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -46,9 +46,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.fabAddTask.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.home_to_sell_one)
-        }
+        binding.fabAddTask.setOnClickListener { navigateToSellFragment() }
+    }
 
+    private fun navigateToSellFragment() {
+        supportFragmentManager.beginTransaction().add(R.id.nav_host_fragment, SellFragmentOne())
+            .commit()
     }
 }

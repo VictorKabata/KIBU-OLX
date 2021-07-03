@@ -152,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:fontFamily="@font/roboto_bold"
-                android:paddingVertical="8dp"
+                android:paddingVertical="6dp"
                 android:text="@string/create_account"
                 android:textAllCaps="false"
                 android:textSize="28sp"
