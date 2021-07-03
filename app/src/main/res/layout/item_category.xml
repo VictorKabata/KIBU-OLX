@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:background="@android:color/transparent">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView_category"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:backgroundTint="@color/colorPrimary"
         app:cardCornerRadius="10dp"
-        app:cardElevation="8dp">
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -38,13 +38,13 @@
     <TextView
         android:id="@+id/textView_category"
         android:layout_width="wrap_content"
-        android:layout_marginTop="4dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/roboto_regular"
+        android:text="Category"
         android:textColor="@color/textPrimary"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@id/cardView_category"
         app:layout_constraintStart_toStartOf="@id/cardView_category"
-        app:layout_constraintTop_toBottomOf="@id/cardView_category"
-        android:text="Category" />
+        app:layout_constraintTop_toBottomOf="@id/cardView_category" />
 </androidx.constraintlayout.widget.ConstraintLayout>

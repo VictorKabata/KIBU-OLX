@@ -6,7 +6,9 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = Item.class, version = 4, exportSchema = false)
+import com.ifixhubke.kibu_olx.models.Products;
+
+@Database(entities = Products.class, version = 4, exportSchema = false)
 public abstract class ItemsDatabase extends RoomDatabase {
 
     /**

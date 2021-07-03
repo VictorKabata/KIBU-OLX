@@ -2,10 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/homeConstraint"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragments.home.HomeFragment">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_home"
@@ -17,7 +15,8 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorSurface">
+            android:background="?attr/colorSurface"
+            android:elevation="8dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -76,19 +75,34 @@
                 android:maxLines="1"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="14dp"
-                app:layout_constraintEnd_toStartOf="@id/imageView_speech"
+                app:layout_constraintEnd_toStartOf="@id/cardView_filter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView_speech"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardView_filter"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginEnd="16dp"
-                android:src="@drawable/ic_mic"
+                android:backgroundTint="@color/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
                 app:layout_constraintBottom_toBottomOf="@id/editText_search"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/editText_search" />
+                app:layout_constraintTop_toTopOf="@id/editText_search">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="14dp"
+                    android:src="@drawable/ic_filter"
+                    app:layout_constraintBottom_toBottomOf="@id/editText_search"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/editText_search" />
+
+            </com.google.android.material.card.MaterialCardView>
+
 
             <TextView
                 android:id="@+id/textView_trending_title"
@@ -169,11 +183,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingVertical="8dp"
                 android:text="@string/see_more"
                 android:textColor="@color/colorPrimary"
-                android:paddingVertical="8dp"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@id/textView_explore_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/textView_explore_title" />
@@ -182,13 +196,13 @@
                 android:id="@+id/recyclerview_products"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:itemCount="6"
                 android:paddingHorizontal="8dp"
-                tools:listitem="@layout/item_product"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView_explore_title"
-                app:spanCount="2" />
+                app:spanCount="2"
+                tools:itemCount="6"
+                tools:listitem="@layout/item_product" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

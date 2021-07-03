@@ -28,9 +28,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ifixhubke.kibu_olx.R;
-import com.ifixhubke.kibu_olx.ui.adapters.SettingsAdapter;
-import com.ifixhubke.kibu_olx.data.Item;
 import com.ifixhubke.kibu_olx.databinding.FragmentSettingsBinding;
+import com.ifixhubke.kibu_olx.models.Products;
+import com.ifixhubke.kibu_olx.ui.adapters.SettingsAdapter;
 import com.ifixhubke.kibu_olx.utils.ItemClickListener;
 import com.ifixhubke.kibu_olx.viewmodels.MainViewModel;
 
@@ -113,8 +113,8 @@ public class SettingsFragment extends Fragment implements ItemClickListener, Too
         });
     }
 
-    private void initAdapter(List<Item> items) {
-        adapter = new SettingsAdapter(items, this);
+    private void initAdapter(List<Products> products) {
+        adapter = new SettingsAdapter(products, this);
     }
 
     @SuppressLint("SetTextI18n")
@@ -193,7 +193,7 @@ public class SettingsFragment extends Fragment implements ItemClickListener, Too
     }
 
     @Override
-    public void itemClick(Item item, int position) {
+    public void itemClick(Products products, int position) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setMessage("Are you sure?");
         builder.setCancelable(true);
@@ -209,7 +209,7 @@ public class SettingsFragment extends Fragment implements ItemClickListener, Too
             public void onClick(DialogInterface dialog, int which) {
 
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-                reference.child("all_items").orderByChild("itemUniqueId").equalTo(item.getItemUniqueId()).addValueEventListener(new ValueEventListener() {
+                reference.child("all_items").orderByChild("itemUniqueId").equalTo(products.getItemUniqueId()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()) {

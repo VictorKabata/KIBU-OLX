@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.ifixhubke.kibu_olx.R;
+import com.ifixhubke.kibu_olx.models.Products;
 import com.ifixhubke.kibu_olx.ui.adapters.ViewPagerAdapter;
-import com.ifixhubke.kibu_olx.data.Item;
 import com.ifixhubke.kibu_olx.databinding.FragmentPictureBrowserBinding;
 
 import org.jetbrains.annotations.NotNull;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import timber.log.Timber;
 
 public class PictureBrowserFragment extends Fragment {
-    Item item;
+    Products products;
     FragmentPictureBrowserBinding binding;
 
     @Override
@@ -31,9 +31,9 @@ public class PictureBrowserFragment extends Fragment {
         View view = binding.getRoot();
 
         assert getArguments() != null;
-        item = PictureBrowserFragmentArgs.fromBundle(getArguments()).getImageArgs();
+        products = PictureBrowserFragmentArgs.fromBundle(getArguments()).getImageArgs();
 
-        Timber.d(item.getItemImage() + "" + item.getItemImage2() + "" + item.getItemImage3());
+        Timber.d(products.getItemImage() + "" + products.getItemImage2() + "" + products.getItemImage3());
 
 
         binding.pictureBrowsingtoolbar.setNavigationOnClickListener(v -> {
@@ -43,9 +43,9 @@ public class PictureBrowserFragment extends Fragment {
         ViewPager2 viewPager2 = view.findViewById(R.id.pictureBrowsingViewPager);
 
         ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
-        fragmentArrayList.add(new Image1Fragment(item.getItemImage()));
-        fragmentArrayList.add(new Image2Fragment(item.getItemImage2()));
-        fragmentArrayList.add(new Image3Fragment(item.getItemImage3()));
+        fragmentArrayList.add(new Image1Fragment(products.getItemImage()));
+        fragmentArrayList.add(new Image2Fragment(products.getItemImage2()));
+        fragmentArrayList.add(new Image3Fragment(products.getItemImage3()));
 
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(requireActivity().getSupportFragmentManager(),

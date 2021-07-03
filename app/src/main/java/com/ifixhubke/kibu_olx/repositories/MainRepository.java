@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.ifixhubke.kibu_olx.data.Item;
+import com.ifixhubke.kibu_olx.models.Products;
 import com.ifixhubke.kibu_olx.data.ItemsDao;
 import com.ifixhubke.kibu_olx.data.ItemsDatabase;
 
@@ -16,8 +16,8 @@ import java.util.List;
 public class MainRepository {
 
     private final ItemsDao itemsDao;
-    private final LiveData<List<Item>> allItems;
-    MutableLiveData<ArrayList<Item>> itemsList = new MutableLiveData<>();
+    private final LiveData<List<Products>> allItems;
+    MutableLiveData<ArrayList<Products>> itemsList = new MutableLiveData<>();
 
     //var fragment2EditText: String? = null
     public MainRepository(Application application) {
@@ -26,15 +26,15 @@ public class MainRepository {
         allItems = itemsDao.getAllItems();
     }
 
-    public void insert(Item item) {
-        new InsertItemAsyncTask(itemsDao).execute(item);
+    public void insert(Products products) {
+        new InsertItemAsyncTask(itemsDao).execute(products);
     }
 
-    public void delete(Item item) {
-        new DeleteItemAsyncTask(itemsDao).execute(item);
+    public void delete(Products products) {
+        new DeleteItemAsyncTask(itemsDao).execute(products);
     }
 
-    public LiveData<List<Item>> getAllItems() {
+    public LiveData<List<Products>> getAllItems() {
         return allItems;
     }
 
@@ -46,7 +46,7 @@ public class MainRepository {
     //AsyncTasks to execute the code in the background thread because database operations should not be executed in the UI thread
 
     //Insert a item
-    private static class InsertItemAsyncTask extends AsyncTask<Item, Void, Void> {
+    private static class InsertItemAsyncTask extends AsyncTask<Products, Void, Void> {
 
         private final ItemsDao itemsDao;
 
@@ -55,9 +55,9 @@ public class MainRepository {
         }
 
         @Override
-        protected Void doInBackground(Item... items) {
+        protected Void doInBackground(Products... products) {
 
-            itemsDao.insert(items[0]);
+            itemsDao.insert(products[0]);
             return null;
         }
     }
@@ -82,7 +82,7 @@ public class MainRepository {
     }
 
     //Delete a item
-    private static class DeleteItemAsyncTask extends AsyncTask<Item, Void, Void> {
+    private static class DeleteItemAsyncTask extends AsyncTask<Products, Void, Void> {
 
         private final ItemsDao itemsDao;
 
@@ -91,9 +91,9 @@ public class MainRepository {
         }
 
         @Override
-        protected Void doInBackground(Item... items) {
+        protected Void doInBackground(Products... products) {
 
-            itemsDao.delete(items[0]);
+            itemsDao.delete(products[0]);
             return null;
         }
     }

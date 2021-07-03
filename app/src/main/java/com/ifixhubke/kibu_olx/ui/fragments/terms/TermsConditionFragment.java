@@ -23,7 +23,7 @@ public class TermsConditionFragment extends Fragment {
         View view = binding.getRoot();
 
         binding.finished.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_termsConditionFragment_to_registerFragment);
+            //Navigation.findNavController(v).navigate(R.id.action_termsConditionFragment_to_registerFragment);
         });
 
         return view;

@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.ifixhubke.kibu_olx.R;
-import com.ifixhubke.kibu_olx.data.User;
+import com.ifixhubke.kibu_olx.models.User;
 import com.ifixhubke.kibu_olx.databinding.FragmentRegisterBinding;
 import com.ifixhubke.kibu_olx.utils.CheckInternet;
 import com.ifixhubke.kibu_olx.utils.Utils;
@@ -48,7 +48,7 @@ public class RegisterFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
-        binding.linearLayoutLogin.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.action_registerFragment_to_loginFragment));
+        binding.linearLayoutLogin.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.register_to_login));
 
         /*binding.termsCondition.setOnClickListener(v->{
             Navigation.findNavController(v).navigate(R.id.action_registerFragment_to_termsConditionFragment);
@@ -112,7 +112,7 @@ public class RegisterFragment extends Fragment {
                         if (task.isSuccessful()) {
                             userID = firebaseAuth.getUid();
                             saveUserDetails(mail, first_Name, last_Name, phone_Number);
-                            Navigation.findNavController(v).navigate(R.id.action_registerFragment_to_loginFragment);
+                            Navigation.findNavController(v).navigate(R.id.register_to_login);
                             Toast.makeText(requireContext(), "We have sent an email verification link to " + mail, Toast.LENGTH_LONG).show();
                             Timber.d("createUserWithEmailAndPassword: Success");
                             binding.registerProgressBar.setVisibility(View.INVISIBLE);

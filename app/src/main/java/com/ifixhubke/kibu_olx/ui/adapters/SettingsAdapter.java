@@ -20,7 +20,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.ifixhubke.kibu_olx.R;
-import com.ifixhubke.kibu_olx.data.Item;
+import com.ifixhubke.kibu_olx.models.Products;
 import com.ifixhubke.kibu_olx.utils.ItemClickListener;
 
 import java.util.List;
@@ -31,10 +31,10 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.Settin
 
     ItemClickListener itemClickListener;
 
-    List<Item> itemArrayList;
+    List<Products> productsArrayList;
 
-    public SettingsAdapter(List<Item> itemArrayList, ItemClickListener itemClickListener) {
-        this.itemArrayList = itemArrayList;
+    public SettingsAdapter(List<Products> productsArrayList, ItemClickListener itemClickListener) {
+        this.productsArrayList = productsArrayList;
         this.itemClickListener = itemClickListener;
     }
 
@@ -47,12 +47,12 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.Settin
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull SettingsHolder holder, int position) {
-        holder.name.setText(itemArrayList.get(position).getItemName());
-        holder.price.setText("Kshs. " + itemArrayList.get(position).getItemPrice());
-        holder.date.setText(itemArrayList.get(position).getDatePosted());
+        holder.name.setText(productsArrayList.get(position).getItemName());
+        holder.price.setText("Kshs. " + productsArrayList.get(position).getItemPrice());
+        holder.date.setText(productsArrayList.get(position).getDatePosted());
 
         Glide.with(holder.itemView)
-                .load(itemArrayList.get(position).getItemImage())
+                .load(productsArrayList.get(position).getItemImage())
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
@@ -69,24 +69,24 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.Settin
                 .fitCenter()
                 .into(holder.image);
 
-        if (itemArrayList.get(position).getIsSoldOut()) {
+        if (productsArrayList.get(position).getIsSoldOut()) {
             holder.checkBox.setChecked(true);
             holder.checkBox.setEnabled(false);
-        }else if (!itemArrayList.get(position).getIsSoldOut()){
+        }else if (!productsArrayList.get(position).getIsSoldOut()){
             holder.checkBox.setChecked(false);
             holder.checkBox.setEnabled(true);
 
             holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 Timber.d(holder.name.getText().toString());
 
-                Item item = new Item(itemArrayList.get(position).getItemImage(),
-                        itemArrayList.get(position).getItemName(),
-                        itemArrayList.get(position).getItemPrice(),
-                        itemArrayList.get(position).getDatePosted(),
-                        itemArrayList.get(position).getIsSoldOut(),
-                        itemArrayList.get(position).getItemUniqueId());
+                Products products = new Products(productsArrayList.get(position).getItemImage(),
+                        productsArrayList.get(position).getItemName(),
+                        productsArrayList.get(position).getItemPrice(),
+                        productsArrayList.get(position).getDatePosted(),
+                        productsArrayList.get(position).getIsSoldOut(),
+                        productsArrayList.get(position).getItemUniqueId());
 
-                itemClickListener.itemClick(item, itemArrayList.get(position).getId());
+                itemClickListener.itemClick(products, productsArrayList.get(position).getId());
 
             });
         }
@@ -94,7 +94,7 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.Settin
 
     @Override
     public int getItemCount() {
-        return itemArrayList.size();
+        return productsArrayList.size();
     }
 
     static class SettingsHolder extends RecyclerView.ViewHolder {

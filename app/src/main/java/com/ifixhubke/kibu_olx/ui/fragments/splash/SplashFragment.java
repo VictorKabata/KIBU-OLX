@@ -71,15 +71,15 @@ public class SplashFragment extends Fragment {
                 FirebaseUser mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 if (mFirebaseUser != null && onBoardingFinished()) {
                     if (mFirebaseAuth.getCurrentUser().isEmailVerified()) {
-                        Navigation.findNavController(requireView()).navigate(R.id.action_splashFragment_to_homeFragment2);
+                        Navigation.findNavController(requireView()).navigate(R.id.splash_to_home);
                     } else {
-                        Navigation.findNavController(requireView()).navigate(R.id.action_splashFragment_to_loginFragment);
+                        Navigation.findNavController(requireView()).navigate(R.id.splash_to_login);
                     }
-                } else if (onBoardingFinished()) {
-                    Navigation.findNavController(requireView()).navigate(R.id.action_splashFragment_to_loginFragment);
-                } else {
+                } else  {
+                    Navigation.findNavController(requireView()).navigate(R.id.splash_to_login);
+                } /*else {
                     Navigation.findNavController(requireView()).navigate(R.id.action_splashFragment_to_viewPagerFragment);
-                }
+                }*/
             }
         }, 3000);
     }

@@ -7,19 +7,21 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
+import com.ifixhubke.kibu_olx.models.Products;
+
 import java.util.List;
 
 @Dao
 public interface ItemsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(Item item);
+    void insert(Products products);
 
     @Delete
-    void delete(Item item);
+    void delete(Products products);
 
-    @Query("SELECT *FROM posted_item_history ORDER BY datePosted DESC")
-    LiveData<List<Item>> getAllItems();
+    @Query("SELECT *FROM Products ORDER BY datePosted DESC")
+    LiveData<List<Products>> getAllItems();
 
-    @Query("UPDATE posted_item_history SET isSoldOut = :soldOut WHERE id = :id")
+    @Query("UPDATE Products SET isSoldOut = :soldOut WHERE id = :id")
     void updateItemSoldOut(Boolean soldOut, int id);
 }

@@ -26,7 +26,7 @@ public class ScreenThree extends Fragment {
         View view = binding.getRoot();
 
         binding.textViewStart.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_viewPagerFragment_to_registerFragment);
+            //Navigation.findNavController(v).navigate(R.id.action_viewPagerFragment_to_registerFragment);
             Utils.onBoardingDone(requireContext());
         });
 

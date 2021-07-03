@@ -7,43 +7,47 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.ifixhubke.kibu_olx.data.Item;
+import com.ifixhubke.kibu_olx.models.Products;
+import com.ifixhubke.kibu_olx.network.FirebaseSource;
 import com.ifixhubke.kibu_olx.repositories.HomeRepository;
 import com.ifixhubke.kibu_olx.repositories.MainRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class MainViewModel extends AndroidViewModel {
     private final MainRepository mainRepository;
     private final HomeRepository homeRepository;
-    private final LiveData<List<Item>> allItems;
+    private final LiveData<List<Products>> allItems;
     public LiveData<Boolean> timeout;
     public LiveData<Boolean> connectedToInternet;
-    public MutableLiveData<ArrayList<Item>> itemsList = new MutableLiveData<>();
+    public MutableLiveData<ArrayList<Products>> itemsList = new MutableLiveData<>();
+
+    @Inject
+    FirebaseSource firebaseSource;
 
     public MainViewModel(@NonNull Application application) {
         super(application);
         mainRepository = new MainRepository(application);
-        homeRepository = new HomeRepository(application);
+        homeRepository = new HomeRepository(firebaseSource);
         allItems = mainRepository.getAllItems();
-        timeout = homeRepository.timeout;
-        connectedToInternet = homeRepository.connectedToInternet;
     }
 
 
     /**
      * wrapper methods for database operations, from the repository
      **/
-    public void insert(Item item) {
-        mainRepository.insert(item);
+    public void insert(Products products) {
+        mainRepository.insert(products);
     }
 
-    public void delete(Item item) {
-        mainRepository.delete(item);
+    public void delete(Products products) {
+        mainRepository.delete(products);
     }
 
-    public LiveData<List<Item>> allItems() {
+    public LiveData<List<Products>> allItems() {
         return allItems;
     }
 
@@ -51,11 +55,11 @@ public class MainViewModel extends AndroidViewModel {
         mainRepository.updateSoldItem(isSoldOut, id);
     }
 
-    public LiveData<ArrayList<Item>> fetchItems() {
+    /*public LiveData<ArrayList<Products>> fetchItems() {
         return homeRepository.fetchItems();
     }
 
     public void refresh() {
         homeRepository.refresh();
-    }
+    }*/
 }

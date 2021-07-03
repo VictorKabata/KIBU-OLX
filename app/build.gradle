@@ -2,7 +2,11 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'com.google.gms.google-services'
+
+    id 'kotlin-kapt'
+
     id 'androidx.navigation.safeargs'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -28,6 +32,11 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
     buildFeatures {
@@ -58,9 +67,6 @@ dependencies {
     //Navigation Components
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
-
-    //Picasso TODO: Switch to glide
-    implementation "com.squareup.picasso:picasso:$picasso_version"
 
     //Circular ImageView- TODO: Remove
     implementation "de.hdodenhof:circleimageview:3.1.0"
@@ -110,12 +116,20 @@ dependencies {
     implementation "androidx.palette:palette-ktx:$color_palette_version"
 
     implementation "com.github.bumptech.glide:glide:$glide_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     implementation "com.google.code.gson:gson:$gson_version"
 
-    //country code picker
+    //Country code picker
     implementation "com.hbb20:ccp:$ccp_version"
+
+    //Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //Hilt ViewModel
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodel_version"
+    kapt "androidx.hilt:hilt-compiler:$hilt_viewmodel_version"
 
 }
 repositories {

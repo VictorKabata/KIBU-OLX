@@ -17,6 +17,9 @@ buildscript {
         ccp_version="2.5.3"
         facebook_shimmer_version="0.5.0"
         dotsIndicator_version = "1.0.1"
+
+        hilt_version = "2.28-alpha"
+        hilt_viewmodel_version = "1.0.0-alpha02"
     }
 
     repositories {
@@ -26,8 +29,8 @@ buildscript {
 
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.2"
-
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
 
         classpath 'com.google.gms:google-services:4.3.5'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"

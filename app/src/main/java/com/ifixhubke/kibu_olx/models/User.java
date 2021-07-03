@@ -1,4 +1,4 @@
-package com.ifixhubke.kibu_olx.data;
+package com.ifixhubke.kibu_olx.models;
 
 public class User {
 

@@ -25,18 +25,18 @@ import com.bumptech.glide.request.target.Target;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.ifixhubke.kibu_olx.R;
-import com.ifixhubke.kibu_olx.data.Item;
+import com.ifixhubke.kibu_olx.models.Products;
 import com.ifixhubke.kibu_olx.ui.fragments.favorites.FavoritesFragmentDirections;
 
-public class FavouritesAdapter extends FirebaseRecyclerAdapter<Item, FavouritesAdapter.ViewHolder> {
+public class FavouritesAdapter extends FirebaseRecyclerAdapter<Products, FavouritesAdapter.ViewHolder> {
 
-    public FavouritesAdapter(@NonNull FirebaseRecyclerOptions<Item> options) {
+    public FavouritesAdapter(@NonNull FirebaseRecyclerOptions<Products> options) {
         super(options);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
-    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Item model) {
+    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Products model) {
         holder.itemName.setText(model.getItemName());
         holder.itemPrice.setText("Ksh." + model.getItemPrice());
         holder.phoneNum.setText(model.getSellerPhoneNum());
@@ -67,7 +67,7 @@ public class FavouritesAdapter extends FirebaseRecyclerAdapter<Item, FavouritesA
 
 
         holder.cardView.setOnClickListener(v -> {
-            Item item = new Item(model.getSellerName(),
+            Products products = new Products(model.getSellerName(),
                     model.getSellerLastSeen(),
                     model.getSellerPhoneNum(),
                     model.getItemImage(),
@@ -82,7 +82,7 @@ public class FavouritesAdapter extends FirebaseRecyclerAdapter<Item, FavouritesA
                     model.getCondition(),
                     model.getItemUniqueId());
 
-            NavDirections action = FavoritesFragmentDirections.actionFavoritesFragment2ToDetailsFragment(item);
+            NavDirections action = FavoritesFragmentDirections.favoritesToDetails(products);
             Navigation.findNavController(v).navigate(action);
         });
     }

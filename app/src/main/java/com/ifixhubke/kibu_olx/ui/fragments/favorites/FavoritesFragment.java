@@ -19,14 +19,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.ifixhubke.kibu_olx.models.Products;
 import com.ifixhubke.kibu_olx.ui.adapters.FavouritesAdapter;
-import com.ifixhubke.kibu_olx.data.Item;
 import com.ifixhubke.kibu_olx.databinding.FragmentFavoritesBinding;
 
 import java.util.Objects;
 
+import dagger.hilt.android.AndroidEntryPoint;
 import timber.log.Timber;
 
+@AndroidEntryPoint
 public class FavoritesFragment extends Fragment {
 
     FragmentFavoritesBinding binding;
@@ -72,8 +74,8 @@ public class FavoritesFragment extends Fragment {
             }
         });
 
-        FirebaseRecyclerOptions<Item> options = new FirebaseRecyclerOptions.Builder<Item>()
-                .setQuery(query, Item.class)
+        FirebaseRecyclerOptions<Products> options = new FirebaseRecyclerOptions.Builder<Products>()
+                .setQuery(query, Products.class)
                 .build();
 
         adapter = new FavouritesAdapter(options);

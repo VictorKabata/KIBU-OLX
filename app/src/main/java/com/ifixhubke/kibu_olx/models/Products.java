@@ -1,4 +1,4 @@
-package com.ifixhubke.kibu_olx.data;
+package com.ifixhubke.kibu_olx.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -8,17 +8,17 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "posted_item_history")
-public class Item implements Parcelable {
+public class Products implements Parcelable {
 
-    public static final Parcelable.Creator<Item> CREATOR = new Parcelable.Creator<Item>() {
+    public static final Parcelable.Creator<Products> CREATOR = new Parcelable.Creator<Products>() {
         @Override
-        public Item createFromParcel(Parcel source) {
-            return new Item(source);
+        public Products createFromParcel(Parcel source) {
+            return new Products(source);
         }
 
         @Override
-        public Item[] newArray(int size) {
-            return new Item[size];
+        public Products[] newArray(int size) {
+            return new Products[size];
         }
     };
     @PrimaryKey(autoGenerate = true)
@@ -43,11 +43,11 @@ public class Item implements Parcelable {
     private String itemUniqueId;
 
     @Ignore
-    public Item() {
+    public Products() {
     }
 
     @Ignore
-    public Item(String category, String condition, double minPrice, double maxPrice) {
+    public Products(String category, String condition, double minPrice, double maxPrice) {
         this.category = category;
         this.condition = condition;
         this.minPrice = minPrice;
@@ -55,7 +55,7 @@ public class Item implements Parcelable {
     }
 
     @Ignore
-    public Item(String itemImage, String itemName, String itemPrice, Boolean itemStarred) {
+    public Products(String itemImage, String itemName, String itemPrice, Boolean itemStarred) {
         this.itemImage = itemImage;
         this.itemName = itemName;
         this.itemPrice = itemPrice;
@@ -63,7 +63,7 @@ public class Item implements Parcelable {
     }
 
     @Ignore
-    public Item(String sellerName, String sellerLastSeen, String sellerPhoneNum, String itemImage, String itemImage2, String itemImage3, String itemName, String itemPrice, String datePosted, String location, String itemDescription, String category, String condition, String itemUniqueId) {
+    public Products(String sellerName, String sellerLastSeen, String sellerPhoneNum, String itemImage, String itemImage2, String itemImage3, String itemName, String itemPrice, String datePosted, String location, String itemDescription, String category, String condition, String itemUniqueId) {
         this.sellerName = sellerName;
         this.sellerLastSeen = sellerLastSeen;
         this.sellerPhoneNum = sellerPhoneNum;
@@ -80,7 +80,7 @@ public class Item implements Parcelable {
         this.itemUniqueId = itemUniqueId;
     }
 
-    public Item(String itemImage, String itemName, String itemPrice, String datePosted, Boolean isSoldOut, String itemUniqueId) {
+    public Products(String itemImage, String itemName, String itemPrice, String datePosted, Boolean isSoldOut, String itemUniqueId) {
         this.itemImage = itemImage;
         this.itemName = itemName;
         this.itemPrice = itemPrice;
@@ -90,14 +90,14 @@ public class Item implements Parcelable {
     }
 
     @Ignore
-    public Item(String itemImage, String itemImage2, String itemImage3) {
+    public Products(String itemImage, String itemImage2, String itemImage3) {
 
         this.itemImage = itemImage;
         this.itemImage2 = itemImage2;
         this.itemImage3 = itemImage3;
     }
 
-    protected Item(Parcel in) {
+    protected Products(Parcel in) {
         this.id = in.readInt();
         this.itemStarred = (Boolean) in.readValue(Boolean.class.getClassLoader());
         this.sellerName = in.readString();

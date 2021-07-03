@@ -12,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
-import com.ifixhubke.kibu_olx.data.Item;
+import com.ifixhubke.kibu_olx.models.Products;
 import com.ifixhubke.kibu_olx.databinding.FragmentFilterBinding;
 import com.ifixhubke.kibu_olx.utils.CheckInternet;
 
@@ -68,8 +68,8 @@ public class FilterFragment extends BottomSheetDialogFragment {
                 Toast.makeText(requireContext(), "You must select an item category and its condition", Toast.LENGTH_SHORT).show();
                 return;
             }
-            Item item = new Item(category, condition, minPrice, maxPrice);
-            NavDirections action = FilterFragmentDirections.actionFilterFragmentToFilteredItemsFragment(item);
+            Products products = new Products(category, condition, minPrice, maxPrice);
+            NavDirections action = FilterFragmentDirections.actionFilterFragmentToFilteredItemsFragment(products);
             NavHostFragment.findNavController(this).navigate(action);
 
         });

@@ -39,7 +39,7 @@ public class LoginFragment extends Fragment {
             resetFragment.show(getFragmentManager(), "dialog_password_reset");
         });
 
-        binding.linearLayoutCreateAccount.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_registerFragment));
+        binding.linearLayoutCreateAccount.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.login_to_register));
 
         binding.buttonLogin.setOnClickListener(v -> {
 
@@ -69,7 +69,7 @@ public class LoginFragment extends Fragment {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         if (firebaseAuth.getCurrentUser().isEmailVerified()) {
-                            Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_homeFragment2);
+                            Navigation.findNavController(v).navigate(R.id.login_to_home);
                             Timber.d("signInWithEmailAndPassword: success");
                             binding.progressBarLogin.setVisibility(View.INVISIBLE);
                         } else {

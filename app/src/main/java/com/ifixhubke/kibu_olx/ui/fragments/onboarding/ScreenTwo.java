@@ -32,7 +32,7 @@ public class ScreenTwo extends Fragment {
 
         binding.textViewSkip.setOnClickListener(v -> {
             Utils.onBoardingDone(requireContext());
-            Navigation.findNavController(v).navigate(R.id.action_viewPagerFragment_to_registerFragment);
+            //Navigation.findNavController(v).navigate(R.id.action_viewPagerFragment_to_registerFragment);
         });
         return view;
     }

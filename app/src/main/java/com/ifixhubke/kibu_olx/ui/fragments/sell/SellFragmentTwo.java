@@ -32,7 +32,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.ifixhubke.kibu_olx.R;
-import com.ifixhubke.kibu_olx.data.Item;
+import com.ifixhubke.kibu_olx.models.Products;
 import com.ifixhubke.kibu_olx.data.Sell;
 import com.ifixhubke.kibu_olx.databinding.FragmentSellTwoBinding;
 import com.ifixhubke.kibu_olx.utils.CheckInternet;
@@ -161,7 +161,7 @@ public class SellFragmentTwo extends Fragment implements AdapterView.OnItemSelec
                             Timber.d(" Now about to store data to FireB %s", (imagesUrls.size() == imagesList.size()));
                             storeUrl();
                             pd.dismiss();
-                            Navigation.findNavController(requireView()).navigate(R.id.action_sellFragmentTwo_to_homeFragment2);
+                            Navigation.findNavController(requireView()).navigate(R.id.sell_two_to_home);
                         }
                     }
 
@@ -198,11 +198,11 @@ public class SellFragmentTwo extends Fragment implements AdapterView.OnItemSelec
                 "Thursday 2020",
                 itemUniqueId);
 
-        Item item = new Item(imageUrl2, binding.productNameEditText.getText().toString(),
+        Products products = new Products(imageUrl2, binding.productNameEditText.getText().toString(),
                 binding.priceEditText.getText().toString(),
                 date, false, itemUniqueId);
 
-        saveToRoomDb(item);
+        saveToRoomDb(products);
         databaseReference.push().setValue(sell);
     }
 
@@ -245,8 +245,8 @@ public class SellFragmentTwo extends Fragment implements AdapterView.OnItemSelec
         });
     }
 
-    private void saveToRoomDb(Item item) {
-        viewModel.insert(item);
+    private void saveToRoomDb(Products products) {
+        viewModel.insert(products);
     }
 
     @Override

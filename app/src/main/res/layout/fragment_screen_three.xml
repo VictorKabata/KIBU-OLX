@@ -58,7 +58,7 @@
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_regular"
-        android:text="@string/buy_sell_online_everything_you_need_get_a_variety_of_products_all_in_one_place"
+        android:text="@string/buy_sell_online_everything_you_need_get_a_variety_of_item_all_in_one_place"
         android:textAlignment="center"
         android:textColor="@color/textSecondary"
         android:textSize="16sp"
@@ -77,7 +77,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!--<com.make.dots.dotsindicator.DotsIndicator
         android:id="@+id/dots_indicator"

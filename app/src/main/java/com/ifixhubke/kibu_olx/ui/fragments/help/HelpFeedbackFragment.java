@@ -58,7 +58,7 @@ public class HelpFeedbackFragment extends Fragment {
             if (best != null)
                 intent.setClassName(best.activityInfo.packageName, best.activityInfo.name);
             getActivity().startActivity(intent);
-            Navigation.findNavController(v).navigate(R.id.action_helpFeedbackFragment_to_homeFragment2);
+            //Navigation.findNavController(v).navigate(R.id.action_helpFeedbackFragment_to_homeFragment2);
         });
 
         return view;

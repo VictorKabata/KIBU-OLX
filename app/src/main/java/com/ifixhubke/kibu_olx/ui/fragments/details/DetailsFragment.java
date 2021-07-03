@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.ifixhubke.kibu_olx.R;
-import com.ifixhubke.kibu_olx.data.Item;
+import com.ifixhubke.kibu_olx.models.Products;
 import com.ifixhubke.kibu_olx.databinding.FragmentDetailsBinding;
 
 import org.jetbrains.annotations.NotNull;
@@ -35,7 +35,7 @@ public class DetailsFragment extends Fragment {
     DatabaseReference databaseReference;
     String userId;
     FirebaseUser user;
-    Item data;
+    Products data;
     private Boolean clicked = false;
     private String myNumber;
 
@@ -79,8 +79,8 @@ public class DetailsFragment extends Fragment {
 
         binding.imageSliderFav1.setItemClickListener(position -> {
 
-            Item item = new Item(data.getItemImage(), data.getItemImage2(), data.getItemImage3());
-            NavDirections navDirections = DetailsFragmentDirections.actionDetailsFragmentToPictureBrowserFragment(item);
+            Products products = new Products(data.getItemImage(), data.getItemImage2(), data.getItemImage3());
+            NavDirections navDirections = DetailsFragmentDirections.detailsToViewImages(products);
             Navigation.findNavController(requireView()).navigate(navDirections);
         });
 

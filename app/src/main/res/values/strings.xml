@@ -97,9 +97,9 @@ Vestibulum luctus diam tincidunt nisi fringilla iaculis. Cras fermentum sollicit
     <string name="reset">Reset</string>
     <string name="enter_your_email_address">Enter your Email Address</string>
     <string name="you_have_nothing_saved_as_favorite">You have nothing saved as favorite</string>
-    <string name="buy_sell_online_everything_you_need_get_a_variety_of_products_all_in_one_place"><![CDATA[Buy & Sell different items you need online, Get a Variety of products all in one place]]></string>
-    <string name="easy_to_acquire_items_from_a_fellow_comrade_sell_faster_buy_smarter_at_kibu_olx">Easy to acquire items from a fellow comrade. Sell faster, buy smarter at KIBU-OLX.</string>
-    <string name="buy_items_at_best_and_cheap_comrade_prices">Buy different affordable items at a cheap and best comrade prices. </string>
+    <string name="buy_sell_online_everything_you_need_get_a_variety_of_item_all_in_one_place"><![CDATA[Buy & Sell different item you need online, Get a Variety of item all in one place]]></string>
+    <string name="easy_to_acquire_items_from_a_fellow_comrade_sell_faster_buy_smarter_at_kibu_olx">Easy to acquire item from a fellow comrade. Sell faster, buy smarter at KIBU-OLX.</string>
+    <string name="buy_items_at_best_and_cheap_comrade_prices">Buy different affordable item at a cheap and best comrade prices. </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="terms_and_condition">Terms and Condition</string>
@@ -113,7 +113,7 @@ Vestibulum luctus diam tincidunt nisi fringilla iaculis. Cras fermentum sollicit
     <p>These terms and conditions ("Agreement") set forth the
         general terms and conditions of your use of the ("KIBU-OLX") mobile
         application ("Mobile Application" or "Service") and any of its related
-        products and services (collectively, "Services"). This Agreement is
+        item and services (collectively, "Services"). This Agreement is
         legally binding between you ("User", "you" or "your") and this Mobile
         Application developer ("Operator", "we", "us" or "our"). By accessing
         and using the Mobile Application and Services, you acknowledge that you
@@ -180,7 +180,7 @@ directly or indirectly, implying any approval, association, sponsorship,
 specifically stated herein. We are not responsible for examining or
 evaluating, and we do not warrant the offerings of, any businesses or
 individuals or the content of their resources. We do not assume any
-responsibility or liability for the actions, products, services, and
+responsibility or liability for the actions, item, services, and
 content of any other third parties. You should carefully review the
 legal statements and other conditions of use of any resource which you
 access through a link in the Mobile Application and Services. Your
@@ -199,11 +199,11 @@ race, age, national origin, or disability; (f) to submit false or
 misleading information; (g) to upload or transmit viruses or any other
 type of malicious code that will or may be used in any way that will
 affect the functionality or operation of the Mobile Application and
-Services, third party products and services, or the Internet; (h) to
+Services, third party item and services, or the Internet; (h) to
 spam, phish, pharm, pretext, spider, crawl, or scrape; (i) for any
 obscene or immoral purpose; or (j) to interfere with or circumvent the
 security features of the Mobile Application and Services, third party
-products and services, or the Internet. We reserve the right to
+item and services, or the Internet. We reserve the right to
 terminate your use of the Mobile Application and Services for violating
 any of the prohibited uses.</p>\n
 <h2><b>Intellectual property rights</b></h2>\n

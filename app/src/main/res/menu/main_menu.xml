@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Share" android:id="@+id/shareMenu"/>
-    <item android:title="About Us" android:id="@+id/aboutUsMenu"/>
-    <item android:title="Rate Us" android:id="@+id/rateUsMenu"/>
-    <item android:title="@string/help_feedback" android:id="@+id/helpMenu"/>
-    <item android:title="Logout" android:id="@+id/logoutMenu"/>
+    <products android:title="Share" android:id="@+id/shareMenu"/>
+    <products android:title="About Us" android:id="@+id/aboutUsMenu"/>
+    <products android:title="Rate Us" android:id="@+id/rateUsMenu"/>
+    <products android:title="@string/help_feedback" android:id="@+id/helpMenu"/>
+    <products android:title="Logout" android:id="@+id/logoutMenu"/>
 
 </menu>
